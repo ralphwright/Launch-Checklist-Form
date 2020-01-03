@@ -41,13 +41,17 @@ window.addEventListener("load", function() {
 
     if (
       pilotName === "" ||
+      !isNaN(pilotName) ||
       copilotName === "" ||
+      !isNaN(copilotName) ||
       fuelLevel === "" ||
       isNaN(fuelLevel) ||
       cargoMass === "" ||
       isNaN(cargoMass)
     ) {
-      alert("All fields are required!");
+      alert(
+        "All fields are required! Also make sure all inputs are correct data types!"
+      );
       items.style.visibility = "hidden";
 
       launchStatus.style.color = "black";
@@ -78,7 +82,6 @@ window.addEventListener("load", function() {
       if (ready) {
         launchStatus.style.color = "green";
         launchStatus.innerHTML = "Shuttle is ready for launch";
-        retrieveData();
       } else {
         items.style.visibility = "visible";
         launchStatus.style.color = "red";
