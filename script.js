@@ -22,10 +22,11 @@ window.addEventListener("load", function () {
       });
       let form = document.querySelector("form");
       form.addEventListener("submit", function (event) {
-         let pilotName = document.getElementById("pilotName");
-         let copilotName = document.getElementById("copilotName");
-         let fuelLevel = document.getElementById("fuelLevel");
-         let cargoMass = document.getElementById("cargoMass");
+         event.preventDefault();
+         let pilotName = document.querySelector("input[name=pilotName]").value;
+         let copilotName = document.querySelector("input[name=copilotName]").value;
+         let fuelLevel = document.querySelector("input[name=fuelLevel]").value;
+         let cargoMass = document.querySelector("input[name=cargoMass]").value;
          if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === "") {
             alert("All fields are required");
             event.preventDefault();
